@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+<!-- {% load static %} -->
+{% block start %}
+
+ 
+<div class="container mt-5">
+
+
+    <form class="col-6 max-auto card p-5 shodow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <h1 style="font-family: 'Times New Roman', Times, serif;">ADD RECIPIE</h1>
+            <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Recipie Nmae</label>
+          <input type="text" name="recipie_name" required   class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Recipie Description</label>
+          <textarea class="form-control" name="recipie_discription"  required></textarea>
+        </div>
+        <div class="mb-3>
+          
+          <label class="form-label" for="exampleCheck1">Add recipie Image</label>
+          <input type="file"  name="recipie_image"   class="form-control">
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-success">Add Recipie</button>
+      </form> <br> 
+
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th scope="col">Sr#</th>
+            <th scope="col">recipie_name</th>
+            <th scope="col">recipie_discription</th>
+            <th scope="col">recipie_image</th>
+            <th scope="col">Delete Recipie</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for reci in recipie %}
+           <!-- # ider wo likhna jo k context veriable bnaty huy likha thaa -->
+          <tr>
+            <th scope="row"> {{forloop.counter}} </th>
+            <td>{{reci.recipie_name}}</td>
+            <td>{{reci.recipie_discription}}</td>
+            <td>
+              <img src="/media/{{reci.recipie_image}}/" style="height: 80px" ></td>
+            <td>
+              <a href="/delete_recipie/ {{reci.id}}/"  class="btn btn-danger mb-3"> Delete_Recipie</a>
+              <a href="/delete_recipie/ {{reci.id}}/"  class="btn btn-success"> Update_Recipie</a>
+
+            </td>
+            
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}

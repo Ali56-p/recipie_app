@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block start %}
+ 
+<div class="container d-flex justify-content-center">
+    
+    <form  class="col-6 max-auto card p-5 shodow-lg" method="post">
+        {% csrf_token %}
+        <h2 style=" font-style: italic; padding-left: 150px;">Login Form</h2>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text"  id="student_name" name="student_name" required  class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Roll_no</label>
+            <input type="text"   id="student_Rollno" name="student_Rollno" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Course</label>
+            <input type="text"  id="student_course" name="student_course"  required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" id="student_email"   name="student_email" required  class="form-control" >
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-info mb-3">Submit</button>
+          </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

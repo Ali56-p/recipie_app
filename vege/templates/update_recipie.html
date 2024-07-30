@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+<!-- {% load static %} -->
+{% block start %}
+
+ 
+<div class="container mt-5">
+
+
+    <form class="col-6 max-auto card p-5 shodow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <h1 style="font-family: 'Times New Roman', Times, serif;">UPDATE RECIPIE</h1>
+            <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Recipie Nmae</label>
+          <input type="text" name="recipie_name" value="{{recipiee.recipie_name}}" required   class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Recipie Description</label>
+          <textarea class="form-control" name="recipie_discription" value="" required>{{recipiee.recipie_discription}}</textarea>
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-success">Update_Recipie</button>
+      </form> <br> 
+
+      
+</div>
+
+{% endblock %}
